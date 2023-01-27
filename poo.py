@@ -1,6 +1,6 @@
 import random
 
-# numéro d'attribue
+# numéro d'attribu
 lancer_dé1 = random.sample(range(1, 6), 4)  # faire lancer 4 dé à 6 faces et mettre ca dans un list
 lancer_dé1.remove(min(lancer_dé1))  # enlever le nombre le plus petit de la list
 Sum1 = sum(lancer_dé1)  # additioner le rest des nombres dans la list et le transformer en integer
@@ -75,23 +75,33 @@ class Kobold(NPC):  # création des classes enfants
     def __init__(self):
         super(Kobold, self).__init__()
 
-    def attaquer(self, attaque_k):
+    @classmethod
+    def attaquer(cls, npc):
 
-        attaque_k = random.randint(1, 20)
+        lancer_dék = random.randint(1, 20)
 
     def subir_domage(self):
 
-        self.subir_domage = Hero.attaquer()
+        self.points_vie = Hero.attaquer()
 
 
 class Hero(NPC):
 
-    def attaquer(self, attaque_h):
+    def __int__(self):
+        super().__init__()
 
-        print(Hero.attaquer())
+    @classmethod
+    def attaquer(cls, koblod):
 
-        attaque_h = random.randint(1, 20)
+        lancer_déh = random.randint(1, 20)
 
-    def subir_domage(self, subir_domage):
+        if lancer_déh == 20:
+
+            koblod.subir_dommage(random.randint(1, 8))
+
+    @classmethod
+    def subir_domage(cls, subir_domage):
 
         subir_domage: int
+
+print(Kobold().subir_domage())
