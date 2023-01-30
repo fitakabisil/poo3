@@ -45,7 +45,7 @@ class NPC:  # création de la class
 
         self.points_vie = random.randint(1, 20)
 
-        self.nom = "Joe Gulivsn"
+        self.nom = "Joe Gulivan"
 
         self.race = 'Human'
 
@@ -72,11 +72,12 @@ print(NPC().print_stats())  # affichage des attribues
 
 class Kobold(NPC):  # création des classes enfants
 
-    def __init__(self):
+    def __init__(self, ):
         super(Kobold, self).__init__()
 
-    @classmethod
-    def attaquer(cls, npc):
+
+
+    def attaquer(self, npc):
 
         lancer_dék = random.randint(1, 20)
 
@@ -90,18 +91,23 @@ class Hero(NPC):
     def __int__(self):
         super().__init__()
 
-    @classmethod
-    def attaquer(cls, koblod):
+        self.lancer_déh: random.randint(1, 20)
 
-        lancer_déh = random.randint(1, 20)
+        self.subir_dom = 1
+
+    def attaquer(self, kobold, lancer_déh):
+
+        lancer_déh = self.lancer_déh
 
         if lancer_déh == 20:
 
-            koblod.subir_dommage(random.randint(1, 8))
+            kobold.points_vie(random.randint(1, 8))
 
-    @classmethod
-    def subir_domage(cls, subir_domage):
+    def subir_domage(self, subir_dom):
 
-        subir_domage: int
+        if NPC(self.points_vie) == 0:
+
+            print('{NPC est mort}')
+
 
 print(Kobold().subir_domage())
