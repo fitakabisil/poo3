@@ -73,16 +73,15 @@ print(NPC().print_stats())  # affichage des attribues
 class Kobold(NPC):  # création des classes enfants
 
     def __init__(self, ):
-        super(Kobold, self).__init__()
+        super(Kobold, self).__init__()  # donner les attribues de la classe NPC au classes enfants
 
-
-
-    def attaquer(self, npc):
+    def attaquer(self, npc):  # méthode attaquer de la class kobold
 
         lancer_dék = random.randint(1, 20)
 
-    def subir_domage(self):
-
+    def subir_domage(self):  #méthode subir domage de la class kobold
+        
+    # les points de vies du kobold sont les points d'attaque du héro soustrait des PV de la classe NPC
         self.points_vie = Hero.attaquer()
 
 
@@ -91,23 +90,21 @@ class Hero(NPC):
     def __int__(self):
         super().__init__()
 
-        self.lancer_déh: random.randint(1, 20)
+        self.lancer_déh: random.randint(1, 20)  # represent la chance d'attaque du héro
 
         self.subir_dom = 1
 
-    def attaquer(self, kobold, lancer_déh):
+    def attaquer(self, kobold, lancer_déh):  # méthode attaquer du héro
 
         lancer_déh = self.lancer_déh
 
-        if lancer_déh == 20:
+        if lancer_déh == 20:  # si le lancer de dé = 20, le héro va avoir une attaque critique
 
-            kobold.points_vie(random.randint(1, 8))
+            kobold.points_vie(random.randint(1, 8))  # soustraction de PV du kobold de 1 à 8
 
-    def subir_domage(self, subir_dom):
+    def subir_domage(self, subir_dom): # méthode subir domage du héro
 
-        if NPC(self.points_vie) == 0:
+        if NPC(self.points_vie) == 0: # j'ai mis n'import quoi. Si les PV de la classe NPC = 0 le héro meurt
 
             print('{NPC est mort}')
-
-
-print(Kobold().subir_domage())
+            
